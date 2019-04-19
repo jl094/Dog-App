@@ -1,0 +1,32 @@
+﻿@model DogApp.Models.DogViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<div align="center">
+    @using (Html.BeginForm("Create", "Dog", FormMethod.Post))
+    {
+        <table class="table">
+            <tr>
+                <td>@Html.LabelFor(model => model.dog.Breed)</td>
+                <td>@Html.TextBoxFor(model => model.dog.Breed)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.dog.SubBreed)</td>
+                <td>@Html.TextBoxFor(model => model.dog.SubBreed)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Save" /></td>
+            </tr>
+
+        </table>
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

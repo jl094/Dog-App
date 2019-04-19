@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2> Index </h2>
+
+<div align = "center" >
+    <a href = "@Url.Action("Create","Dog")" > Add New Dog </a>
+    <br /> <br />
+    <table cellpadding = "2" class = "table" cellspacing = "2" border = "1" >
+    <tr class = "btn-primary" >
+        <th>Id</th>
+        <th>Breed</th>
+        <th>SubBreed</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var Dog in ViewBag.listDogs) {
+        <tr class = "btn-success" >
+            <td>@Dog.Id</td>
+            <td>@Dog.Breed</td>
+            <td>@Dog.SubBreed</td> 
+            <td><a onclick = "return confirm('Do you want to Delete?')" 
+               href = "@Url.Action("Delete","Dog",new {id= Dog.Id})">Delete</a> ||
+                <a href = "@Url.Action("Edit","Dog",new {id= Dog.Id})">Edit</a> </td>
+        </tr>
+    }
+    </table>
+</div>
